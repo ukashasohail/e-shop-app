@@ -1,0 +1,35 @@
+{
+  "proxy": "http:\\localhost:5000",
+  "name": "react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client-install": "npm install --prefix test",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix test",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Ukasha Sohail",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.0",
+    "express": "^4.17.1",
+    "gravatar": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.17.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "validator": "^11.0.0",
+    "yelp-fusion": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
