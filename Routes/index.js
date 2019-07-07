@@ -1,6 +1,21 @@
 const express = require("express")
 const router = express.Router()
 
+const mysql = require('mysql');
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'dbms123',
+    database: 'mydb'
+});
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log("database connected");
+});
+
+
 router.use("/test",(req,res) => 
     res.json({
     msg : "user works"
@@ -12,10 +27,22 @@ router.use("/fetchData",(req,res)=> {
     })
 })
 router.use("/insert",(req,res)=>{
-    let a = 7
-    console.log("server",req.body)
-    res.send(a)
-})
+    console.log("working on insert request");
+
+    let form_data = req.body;
+    console.log(form_data);
+
+    let sql = 'INSERT INTO Customers SET ?'
+
+    let query = db.query(sql, form_data, (err, result)=>{
+        if(err){
+            throw err;
+        }
+        console.log(result);
+        console.log("inserted data");
+    });
+
+});
 // register user
 // console.log("index.js")
 router.use("/checkingUser",(req,res) => {
