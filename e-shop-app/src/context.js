@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { storeProducts, detailProduct } from './data'
+import axios from 'axios'
+// import { storeProducts, detailProduct } from './data'
 
 const ProductContext = React.createContext()
 //Provider
@@ -8,21 +9,38 @@ const ProductContext = React.createContext()
 class ProductProvider extends Component {
     state = {
         products: [],
-        detailProduct: detailProduct,
+        // detailProduct: detailProduct,
         cart: [],
         modalOpen: false,
-        modalProduct: detailProduct,
+        modalProduct: {},
         hamza : 0,
         cartTax: 0,
-        cartTotal: 0
+        cartTotal: 0,
+        storeProducts:[]
+
 
     }
     componentDidMount(){
+    axios.get("/getdata",(req,res)=>{
+        console.log("getdata",res.data)
+    })
+    .then(user=> {
+        user.data && user.data.map(d => {
+            d.inCart = false
+            d.count = 0
+            d.total = 0
+        })
+       this.setState({
+            storeProducts: user.data,
+            modalProduct: user.data[0]
+        })    
         this.setProducts();
+    })
     }
+    
     setProducts = ()=>{
         let tempProducts =[];
-        storeProducts.forEach(item =>{
+        this.state.storeProducts.forEach(item =>{
             const singleItem = { ...item };
             tempProducts = [...tempProducts,singleItem]
         })
@@ -147,6 +165,8 @@ class ProductProvider extends Component {
         })
     }
     render() {
+        console.log("this.state.sample", this.state.storeProducts)
+        console.log("this.state.modal",this.state.modalProduct)
         return (
                 <ProductContext.Provider value={{
                     ...this.state,
@@ -167,4 +187,5 @@ class ProductProvider extends Component {
 
 const ProductConsumer = ProductContext.Consumer;
 
+// export {ProductProvider,ProductConsumer}
 export {ProductProvider,ProductConsumer}
