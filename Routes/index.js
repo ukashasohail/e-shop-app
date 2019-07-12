@@ -43,6 +43,28 @@ router.use("/insert",(req,res)=>{
     });
 
 });
+
+
+router.use("/insertItem",(req,res)=>{
+    console.log("working on insert item request");
+
+    let form_data = req.body;
+    console.log(form_data);
+
+    // let sql = 'INSERT INTO Customers SET ?'
+
+    // let query = db.query(sql, form_data, (err, result)=>{
+    //     if(err){
+    //         throw err;
+    //     }
+    //     console.log(result);
+    //     console.log("inserted data");
+    // });
+
+});
+
+
+
 // register user
 // console.log("index.js")
 router.use("/checkingUser",(req,res) => {

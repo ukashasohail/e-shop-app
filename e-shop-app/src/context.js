@@ -16,7 +16,8 @@ class ProductProvider extends Component {
         hamza : 0,
         cartTax: 0,
         cartTotal: 0,
-        storeProducts:[]
+        storeProducts:[],
+        ideas:null,
 
 
     }
@@ -61,6 +62,14 @@ class ProductProvider extends Component {
             return {detailProduct: product}
         })
     }
+
+    testFunc = (id) =>{
+        this.setState({
+            ideas:id
+        })
+        console.log(id)
+    }
+
     addToCart = id =>{  
        let tempProducts = [...this.state.products];
        const index = tempProducts.indexOf(this.getItem(id));
@@ -165,8 +174,8 @@ class ProductProvider extends Component {
         })
     }
     render() {
-        console.log("this.state.sample", this.state.storeProducts)
-        console.log("this.state.modal",this.state.modalProduct)
+        // console.log("this.state.sample", this.state.storeProducts)
+        // console.log("this.state.modal",this.state.modalProduct)
         return (
                 <ProductContext.Provider value={{
                     ...this.state,

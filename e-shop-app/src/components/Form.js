@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../App.css'
+import Confirmed from './Confirmed'
 import axios from 'axios'
 
 
@@ -39,6 +40,7 @@ class Form extends Component {
       email: null,
       city:null,
       address:null,
+      nextPage: false,
       // displayMenu:false,
       formErrors: {
         firstName: "",
@@ -75,6 +77,9 @@ class Form extends Component {
         city: this.state.city,
         address: this.state.address 
       }
+      this.setState({
+        nextPage: true,
+      })
 
       axios.post("/insert",testObj)
       .then(res =>{
@@ -126,131 +131,112 @@ class Form extends Component {
 
   render() {
     const { formErrors } = this.state;
-
-    return (
-      <div className="wrapper">
-        <div className="form-wrapper">
-          <h1>Buyer Details</h1>
-          <form onSubmit={this.handleSubmit} noValidate>
-            <div className="firstName">
-              <label htmlFor="firstName">First Name</label>
-              <input
-                className={formErrors.firstName.length > 0 ? "error" : null}
-                placeholder="First Name"
-                type="text"
-                name="firstName"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.firstName.length > 0 && (
-                <span className="errorMessage">{formErrors.firstName}</span>
-              )}
-            </div>
-            <div className="lastName">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                className={formErrors.lastName.length > 0 ? "error" : null}
-                placeholder="Last Name"
-                type="text"
-                name="lastName"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.lastName.length > 0 && (
-                <span className="errorMessage">{formErrors.lastName}</span>
-              )}
-            </div>
-            <div className="email">
-              <label htmlFor="email">Email</label>
-              <input
-                className={formErrors.email.length > 0 ? "error" : null}
-                placeholder="Email"
-                type="email"
-                name="email"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.email.length > 0 && (
-                <span className="errorMessage">{formErrors.email}</span>
-              )}
-            </div>
-            <div className="mobileNumber">
-              <label htmlFor="number">Mobile Number</label>
-              <input
-                className={formErrors.number.length > 0 ? "error" : null}
-                placeholder="Mobile Number"
-                type="text"
-                name="number"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.number.length > 0 && (
-                <span className="errorMessage">{formErrors.number}</span>
-              )}
-            </div>
-
-            <div className="city">
-              <label htmlFor="city">City Name</label>
-              <input
-                className={formErrors.number.length > 0 ? "error" : null}
-                placeholder="Enter City"
-                type="text"
-                name="city"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.city.length > 0 && (
-                <span className="errorMessage">{formErrors.city}</span>
-              )}
-            </div>
-
-            <div className="city">
-              <label htmlFor="address">Residential Address</label>
-              <input
-                className={formErrors.address.length > 0 ? "error" : null}
-                placeholder="Address"
-                type="text"
-                name="address"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.address.length > 0 && (
-                <span className="errorMessage">{formErrors.address}</span>
-              )}
-            </div>
-
-
-    {/* <div  className="dropdown" >
-         <div className="dropdown-button" onClick={this.showDropdownMenu}> Choose City </div>
-
-          { this.state.displayMenu ? (
-          <ul>
-         <li>Create Page</li>
-         <li>Manage Pages</li>
-         <li>Create Ads</li>
-         <li>Manage Ads</li>
-         <li>Activity Logs</li>
-         <li>Setting</li>
-         <li>Log Out</li>
-          </ul>
-        ):
-        (
-          null
-        )
-        }
-
-       </div>     */}
-
-
-
-
-            <div className="createAccount">
-              <button type="submit">Confirm Order</button>
-            </div>
-          </form>
+    if(!this.state.nextPage){
+      return (
+        <div className="wrapper">
+          <div className="form-wrapper">
+            <h1>Buyer Details</h1>
+            <form onSubmit={this.handleSubmit} noValidate>
+              <div className="firstName">
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  className={formErrors.firstName.length > 0 ? "error" : null}
+                  placeholder="First Name"
+                  type="text"
+                  name="firstName"
+                  noValidate
+                  onChange={this.handleChange}
+                />
+                {formErrors.firstName.length > 0 && (
+                  <span className="errorMessage">{formErrors.firstName}</span>
+                )}
+              </div>
+              <div className="lastName">
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  className={formErrors.lastName.length > 0 ? "error" : null}
+                  placeholder="Last Name"
+                  type="text"
+                  name="lastName"
+                  noValidate
+                  onChange={this.handleChange}
+                />
+                {formErrors.lastName.length > 0 && (
+                  <span className="errorMessage">{formErrors.lastName}</span>
+                )}
+              </div>
+              <div className="email">
+                <label htmlFor="email">Email</label>
+                <input
+                  className={formErrors.email.length > 0 ? "error" : null}
+                  placeholder="Email"
+                  type="email"
+                  name="email"
+                  noValidate
+                  onChange={this.handleChange}
+                />
+                {formErrors.email.length > 0 && (
+                  <span className="errorMessage">{formErrors.email}</span>
+                )}
+              </div>
+              <div className="mobileNumber">
+                <label htmlFor="number">Mobile Number</label>
+                <input
+                  className={formErrors.number.length > 0 ? "error" : null}
+                  placeholder="Mobile Number"
+                  type="text"
+                  name="number"
+                  noValidate
+                  onChange={this.handleChange}
+                />
+                {formErrors.number.length > 0 && (
+                  <span className="errorMessage">{formErrors.number}</span>
+                )}
+              </div>
+  
+              <div className="city">
+                <label htmlFor="city">City Name</label>
+                <input
+                  className={formErrors.number.length > 0 ? "error" : null}
+                  placeholder="Enter City"
+                  type="text"
+                  name="city"
+                  noValidate
+                  onChange={this.handleChange}
+                />
+                {formErrors.city.length > 0 && (
+                  <span className="errorMessage">{formErrors.city}</span>
+                )}
+              </div>
+  
+              <div className="city">
+                <label htmlFor="address">Residential Address</label>
+                <input
+                  className={formErrors.address.length > 0 ? "error" : null}
+                  placeholder="Address"
+                  type="text"
+                  name="address"
+                  noValidate
+                  onChange={this.handleChange}
+                />
+                {formErrors.address.length > 0 && (
+                  <span className="errorMessage">{formErrors.address}</span>
+                )}
+              </div>  
+              <div className="createAccount">
+                <button type="submit">Confirm Order</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    );
+      )
+    }
+    else{
+      return(
+        <Confirmed />
+      )
+    }
+    
   }
 }
 

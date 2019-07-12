@@ -44,6 +44,22 @@ body:focus{
   font-size: 1.2rem;
   color: var(--mainYellow) !important;
 }
+.btn-buynow {
+  background: #2A2A72 !important;
+  color: #fff !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 10px !important;
+}
+
+.btn-buynow:hover {
+  color: #2A2A72 !important;
+  background: #fff !important;
+  border: 3px solid !important;
+}
+.btn-div {
+  margin: 0 auto !important;
+}
 
 button:focus{
   outline: none
@@ -299,7 +315,47 @@ input.error {
   padding-bottom: 2px;
   margin-left: 5px;
 }
-
+.btn-div{
+  display: inline-block;
+  width: 32.33%;
+}
+button.bttn {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  background: #2A2A72;
+  color: #fff;
+}
+button.bttn:hover {
+  color: #000;
+  border: 3px solid #2A2A72;
+  background: #fff;
+  transition: 0.5s;
+}
+button.bttn:focus{
+  outline: none
+}
+.FormField-items {
+  width: 50%;
+  padding-top: 8px;
+}
+.label-items{
+  display: block;
+  text-align: left;
+}
+.label-item-input{
+  width: 99%;
+  margin-left: -5px;
+}
+.FormField-items-info{
+  width: 100%;
+}
+.bttn-items {
+  float: right;
+  margin-top: -50px;
+  width: 50% !important;
+  background: #E5950E !important;
+}
 
 
 
