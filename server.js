@@ -5,9 +5,11 @@ const index = require("./Routes/index");
 
 const app = express();
 
+const port = process.env.PORT || 5000;
+
 //BodyParser
-app.use(bodyParser.urlencoded({extended : false}))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.json());
 
 
 // creating connection with db
@@ -30,7 +32,7 @@ app.get("/", (req,res) =>{
     res.send("Hello from server");
 });
 
-app.use("/",index)
+app.use("/",index);
 
 //handling /getdata request
 app.get('/getdata', (req, res) => {
@@ -46,8 +48,7 @@ app.get('/getdata', (req, res) => {
     });
 });
 
-const port = process.env.PORT || 5000
 
 app.listen(port,() =>{
- console.log(`server running on port ${port}`)
+ console.log(`Server running on port ${port}`);
 });
