@@ -9,6 +9,7 @@ const ProductContext = React.createContext()
 class ProductProvider extends Component {
     constructor(props){
         super(props)
+<<<<<<< HEAD
         // axios.get("/getdata",(req,res)=>{
         //     console.log("getdata",res.data)
         // })
@@ -41,6 +42,9 @@ class ProductProvider extends Component {
     }
     componentWillMount(){
     axios.get("/getdata",(req,res)=>{
+=======
+        axios.get("/getdata",(req,res)=>{
+>>>>>>> 27ed12a0c54b71424fdc9a31fd91cc4fa04240df
         console.log("getdata",res.data)
     })
     .then(user=> {
@@ -56,6 +60,37 @@ class ProductProvider extends Component {
         this.setProducts();
     })
     }
+    state = {
+        products: [],
+        // detailProduct: detailProduct,
+        cart: [],
+        modalOpen: false,
+        modalProduct: {},
+        hamza : 0,
+        cartTax: 0,
+        cartTotal: 0,
+        storeProducts:[],
+        ideas:null,
+
+
+    }
+    // componentDidMount(){
+    // axios.get("/getdata",(req,res)=>{
+    //     console.log("getdata",res.data)
+    // })
+    // .then(user=> {
+    //     user.data && user.data.map(d => {
+    //         d.inCart = false
+    //         d.count = 0
+    //         d.total = 0
+    //     })
+    //    this.setState({
+    //         storeProducts: user.data,
+    //         modalProduct: user.data[0]
+    //     })    
+    //     this.setProducts();
+    // })
+    // }
     
     setProducts = ()=>{
         let tempProducts =[];

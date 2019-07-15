@@ -27,12 +27,6 @@ const formValid = ({ formErrors, ...rest }) => {
 class Form extends Component {
   constructor(props) {
     super(props);
-    // fetch("http://localhost:5000/fetchData")
-    // .then(res => {
-    //     // res.json()
-    //   console.log("res.data",res.data,"res.json()",res.json())
-    // })
-    // .then(res => console.log("res ", res))
     
     this.state = {
       firstName: null,
@@ -41,6 +35,7 @@ class Form extends Component {
       city:null,
       address:null,
       nextPage: false,
+
       // displayMenu:false,
       formErrors: {
         firstName: "",
@@ -81,7 +76,16 @@ class Form extends Component {
         nextPage: true,
       })
 
+
+
       axios.post("/insert",testObj)
+      .then(res =>{
+        console.log("response from server",res.data)
+      } )
+
+      let cartArray = localStorage.getItem("testObj")
+
+      axios.post("/cart",cartArray)
       .then(res =>{
         console.log("response from server",res.data)
       } )
@@ -126,7 +130,7 @@ class Form extends Component {
         break;
     }
 
-    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+    this.setState({ formErrors, [name]: value });
   };
 
   render() {
