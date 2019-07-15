@@ -85,12 +85,15 @@ import { withRouter } from "react-router-dom";
         // this.setState({
         //     display:'flex',
         // })
+        const delObj = {
+            delId:this.state.testId,
+        }
 
-        axios.post("/deleteItem",this.state.testId)
+        axios.post("/deleteItem",delObj)
                 .then(res =>{
-                  console.log("response from server ",res.data)
+                  console.log("response from server ",res.data);
                 }) 
-        console.log("hello from areSure", this.state.testId)
+        console.log("hello from delete", delObj)
         alert("item delete succesfully")
         this.props.history.push('/')
 

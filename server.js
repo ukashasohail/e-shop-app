@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: 'dbms123',
     database: 'mydb'
 });
 
@@ -47,6 +47,8 @@ app.get('/getdata', (req, res) => {
         res.send(result);
     });
 });
+
+
 
 
 app.listen(port,() =>{
