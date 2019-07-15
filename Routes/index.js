@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'dbms123',
+    password: 'root',
     database: 'mydb'
 });
 
@@ -27,6 +27,12 @@ router.use("/fetchData",(req,res)=> {
         fortest : "dumy data"
     })
 })
+
+router.use("/deleteItem",(req,res)=>{
+    console.log("working delete request")
+    res.send("delete request")
+})
+
 router.use("/insert",(req,res)=>{
     console.log("working on insert request");
 

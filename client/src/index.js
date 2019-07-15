@@ -5,10 +5,12 @@ import {ProductProvider} from './context'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {Route, Link } from 'react-router-dom';
+import history from './history';
 
 ReactDOM.render(
 <ProductProvider>
-    <Router>
+    <Router history= {history}>
         <App />
     </Router>
 </ProductProvider>    

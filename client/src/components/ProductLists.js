@@ -2,7 +2,7 @@ import React from 'react'
 import Product from './Product'
 import Title from './Title'
 import NavbarAdmin from './Navbar-admin'
-
+import Slider from './Slider'
 
 export default class  ProductLists extends React.Component{
     render(){
@@ -13,11 +13,12 @@ export default class  ProductLists extends React.Component{
             <React.Fragment>
                 <div className='py-5'>
                     <div className='container'>
-                            <NavbarAdmin />
+                            <Slider />
                             <Title name="our" title="Categories" />
                             <div className='row'>
                                 <Product />
                             </div> 
+                            <NavbarAdmin />
                     </div>
                 </div>
             </React.Fragment>

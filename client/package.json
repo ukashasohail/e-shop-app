@@ -6,11 +6,15 @@
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "history": "^4.9.0",
     "mdbreact": "^4.17.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-gesture-gallery": "^1.0.1",
+    "react-gesture-responder": "^2.1.0",
+    "react-image-gallery": "^0.8.18",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "^3.0.1",
     "styled-components": "^4.3.2"
   },
   "scripts": {

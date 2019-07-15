@@ -3,22 +3,113 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import { ProductConsumer } from '../context';
 import PropTypes from 'prop-types'
+import axios from 'axios'
+import { withRouter } from "react-router-dom";
 
-export default class MainCat extends Component {
+// import AreSure from './itemsChange/AreSure'
+
+ class MainCat extends Component {
     constructor(props){
         super(props)
 
         this.state={
-            itemUpdate: false,
-            itemDelete: false,
-            idea:null
+            title:'',
+            img: '',
+            price:'',
+            company:'',
+            info:'',
+            category:'',
+            testId: this.props.product.id,
+            deleteDisplayed:'none',
+            updateDisplayed:'none'
         }
     }
 
+
+    updateItem =() =>{
+        this.setState({
+            updateDisplayed:'flex',
+        })
+        console.log(this.state.testId)
+    }
+
+    deleteItem =() =>{
+        console.log("hamza",this.state.testId)
+        this.setState({
+            deleteDisplayed:'flex',
+        })
+    }
+
+    handleChange = (e) => {
+        let target = e.target;
+        let value = target.type === 'checkbox' ? target.checked : target.value;
+        let name = target.name;
+
+        this.setState({
+          [name]: value,
+        });
+    }
+    
+    
+
+    handleSubmit =(e) => {
+            e.preventDefault();
+            
+            const {testId,title,img,price,company,info,category} = this.state;
+            
+            let dataInserted = {
+                // ids,testId,
+                itemId:testId,
+                title:title,
+                img:img,
+                price:price,
+                company:company,
+                info:info,
+                category:category
+                
+            }
+            console.log('The form was submitted with the following data:');
+            console.log(dataInserted);
+            axios.post("/updateItem",dataInserted)
+                .then(res =>{
+                  console.log("response from server ",res.data)
+                }) 
+            alert("item Has been updated")
+            this.props.history.push('/')
+
+        }
+        
+
+    deletedItem = () =>{
+        
+        // this.setState({
+        //     display:'flex',
+        // })
+
+        axios.post("/deleteItem",this.state.testId)
+                .then(res =>{
+                  console.log("response from server ",res.data)
+                }) 
+        console.log("hello from areSure", this.state.testId)
+        alert("item delete succesfully")
+        this.props.history.push('/')
+
+    }
+
+    cancel = () =>{
+        this.setState({
+            deleteDisplayed:'none',
+            updateDisplayed:'none',
+        })
+        // this.props.history.push('/')
+    }
+
+
     render() {
-        const {id, title , img , price , inCart } = this.props.product;
-        return(
-            <ProductWrapper className='col-9 mx-auto col-md-6 col-lg-3 my-3'>
+            const {id, title , img , price , inCart } = this.props.product;
+            return(
+                <React.Fragment>
+                <ProductWrapper className='col-9 mx-auto col-md-6 col-lg-3 my-3'>
                 <div className='card'>
                 <ProductConsumer>
                     {(value)=>(
@@ -48,13 +139,86 @@ export default class MainCat extends Component {
                         </h5>
                     </div>
                     <div className='card-footer d-flex justify-content-between'>
-                        <div className='test-div test-div1'><button>Update Item</button></div>
-                        <div className='test-div test-div2'><button>Delete Item</button></div>
+                        <div className='test-div test-div1' onClick={() => this.updateItem()}><button className='bttn card-btn'>Update Item</button></div>
+                        <div className='test-div test-div2' onClick={()=> this.deleteItem() }><button className='bttn card-btn'>Delete Item</button></div>
                     </div>
                 </div>
             </ProductWrapper>
+
+            {/* FOR DELETION OF AN ITEM */}
+            <ModalContainer2 style={{display: this.state.deleteDisplayed}}>
+                        <div className='container'>
+                            <div className='row'>
+                                <div id='modal' className='modalTest col-10 mx-auto col-md-12 col-lg-10 text-center text-capitalize p-5'>
+                                        <h1>Are You Sure To Delete Item ?</h1>
+                                        <h5>This will permanently Delete</h5>
+                                        <div className='class-btn'>
+                                            <span><button className='delete-btn' onClick={() => this.deletedItem()}>Yes, Delete it</button></span>
+                                            <span><button className='delete-btn cancel-btn' onClick={() => this.cancel() }>Cancel</button></span>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+            </ModalContainer2>
+
+
+            {/* FOR UPDATION OF AN ITEM */}
+
+            <ModalContainer2 style={{display: this.state.updateDisplayed}}>
+                <div className='container'>
+                <div className='row'>
+                <div id='modal' className='modalTest col-10 mx-auto col-md-12 col-lg-10 text-center text-capitalize p-5'>
+                    <h1>Update Item</h1>
+                    <h3>Item ID {this.state.testId}</h3>
+                    <div className="FormCenter">
+                    <form onSubmit={this.handleSubmit} className="FormFields">
+                      <div className="FormField-items">
+                        <label className="label-items" htmlFor="title">Title Name</label>
+                        <input type="text" id="title" className="label-item-input" placeholder="Title Name" name="title" value={this.state.title} onChange={this.handleChange} />
+                      </div>
+                      <div className="FormField-items">
+                        <label className=" label-items" htmlFor="img">Image path</label>
+                        <input type="text" id="img" className="label-item-input" placeholder="Image URL" name="img" value={this.state.img} onChange={this.handleChange} />
+                      </div>
+                      <div className="FormField-items">
+                        <label className=" label-items" htmlFor="price">Price</label>
+                        <input type="text" id="price" className="label-item-input" placeholder="Enter Price" name="price" value={this.state.price} onChange={this.handleChange} />
+                      </div>
+                      <div className="FormField-items">
+                        <label className=" label-items" htmlFor="company">Company</label>
+                        <input type="text" id="company" className="label-item-input" placeholder="Enter Company" name="company" value={this.state.company} onChange={this.handleChange} />
+                      </div>
+                      <div className="FormField-items">
+                        <label className=" label-items" htmlFor="category">Category</label>
+                        <input type="text" id="category" className="label-item-input" placeholder="Enter Category" name="category" value={this.state.category} onChange={this.handleChange} />
+                      </div>
+                      <div className="FormField-items-info">
+                        <label className=" label-items" htmlFor="info">Info about Item</label>
+                        <input type="text" id="info" className="label-item-input" placeholder="Enter Info" name="info" value={this.state.info} onChange={this.handleChange} />
+                      </div>
+        
+        
+                      <div className="FormField-items">
+                          <button className="bttn">Update Item</button>
+                      </div>
+                    </form>
+                        <button className="bttn bttn-items" onClick={()=>this.cancel()}>Cancel</button>
+                    
+                  </div>             
+                            </div>
+                        </div>
+                    </div>
+                </ModalContainer2>
+
+
+            </React.Fragment>
         )
-    }
+        // else if(itemsDelete === true){
+        //     return(
+                
+        //     )
+        // }
+}
 }
 
 MainCat.propTypes = {
@@ -118,3 +282,20 @@ const ProductWrapper = styled.div`
     transition: none;
 }
 `
+const ModalContainer2 = styled.div`
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom:0;
+background: rgba(0,0,0,0.3);
+align-items : center;
+z-index: 1;
+justify-content: center;
+#modal{ 
+background: var(--mainWhite);
+}
+`
+export default withRouter(MainCat);
+
+ {/* <AreSure testId = {this.state.testId} display = {this.state.display}/> */}

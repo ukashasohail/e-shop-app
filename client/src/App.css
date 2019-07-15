@@ -316,7 +316,6 @@ input.error {
   margin-left: 5px;
 }
 .btn-div{
-  display: inline-block;
   width: 32.33%;
 }
 button.bttn {
@@ -326,7 +325,7 @@ button.bttn {
   background: #2A2A72;
   color: #fff;
 }
-button.bttn:hover {
+button.bttn:hover, button.delete-btn:hover {
   color: #000;
   border: 3px solid #2A2A72;
   background: #fff;
@@ -357,5 +356,18 @@ button.bttn:focus{
   background: #E5950E !important;
 }
 
-
-
+button.delete-btn {
+  width: 40%;
+  height: 42px;
+  background: #2A2A72;
+  border-radius: 8px;
+  color: #fff;
+}
+.cancel-btn {
+  background: #E5950E !important;
+  margin-left: 10px;
+}
+.slider {
+  padding: 10px;
+  background: #2A2A72;
+}
