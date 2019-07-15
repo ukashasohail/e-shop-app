@@ -8,12 +8,21 @@ import CartTotals from './CartTotals'
 import BuyNow from './BuyNow'
 
 export default class  Cart extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            testCart : []
+        }
+    }
     render(){
         return(
             <section>
                 <ProductConsumer>
                     {value=>{
                         const {cart} = value;
+                        // var cats = cart;
+                        // console.log('cats and dogs',cats)
+                        window.localStorage.setItem('testObj',JSON.stringify(cart))
                         if(cart.length >0 ){
                             return (
                                 <React.Fragment>
