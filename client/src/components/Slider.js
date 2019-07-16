@@ -1,6 +1,5 @@
 
-import React, { Component } from 'react'
-import ReactDom from 'react-dom'
+import React from 'react'
 import { Gallery, GalleryImage } from 'react-gesture-gallery'
 import {images} from './slider-images';
 

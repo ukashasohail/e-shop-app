@@ -371,3 +371,19 @@ button.delete-btn {
   padding: 10px;
   background: #2A2A72;
 }
+.red-bg{
+  background: rgb(196, 9, 9);
+}
+.test-div2 {
+  margin-left: 40px;
+}
+.test-div {
+  display: inline-block;
+  width: 42%;
+}
+.test-hide{
+  visibility: hidden;
+}
+.test-show{
+  visibility: visible;
+}
