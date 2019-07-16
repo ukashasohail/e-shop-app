@@ -58,15 +58,15 @@ router.use("/insertItem",(req,res)=>{
     let form_data = req.body;
     console.log(form_data);
 
-    // let sql = 'INSERT INTO Customers SET ?'
+    let sql = 'INSERT INTO Products SET ?'
 
-    // let query = db.query(sql, form_data, (err, result)=>{
-    //     if(err){
-    //         throw err;
-    //     }
-    //     console.log(result);
-    //     console.log("inserted data");
-    // });
+    let query = db.query(sql, form_data, (err, result)=>{
+        if(err){
+            throw err;
+        }
+        console.log(result);
+        console.log("inserted Item data");
+    });
 
 });
 
