@@ -84,6 +84,8 @@ class Form extends Component {
       } )
 
       let cartArray = localStorage.getItem("testObj")
+      localStorage.removeItem("testObj")
+      console.log("Hello from cart",cartArray)
 
       axios.post("/cart",cartArray)
       .then(res =>{

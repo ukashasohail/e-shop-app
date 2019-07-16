@@ -3,7 +3,8 @@ import axios from 'axios'
 import '../../App.css'
 import NavbarAdmin from '../Navbar-admin'
 import styled from 'styled-components'
-// import swal from 'bootstrap-sweetalert'
+import swal from 'sweetalert'
+
 
 class InsertItem extends Component {
     constructor(props) {
@@ -39,18 +40,6 @@ class InsertItem extends Component {
     handleSubmit =(e) => {
 
             e.preventDefault();
-            // swal({
-            //     title: "Are you sure?",
-            //     text: "Your will not be able to recover this imaginary file!",
-            //     type: "warning",
-            //     showCancelButton: true,
-            //     confirmButtonClass: "btn-danger",
-            //     confirmButtonText: "Yes, delete it!",
-            //     closeOnConfirm: false
-            //   },
-            //   function(){
-            //     swal("Deleted!", "Your imaginary file has been deleted.", "success");
-            //   });
             const {title,img,price,company,category,info} = this.state;
             if(title && img && price && company && category && info !== ''){
                 console.log('The form was submitted with the following data:');
@@ -68,7 +57,8 @@ class InsertItem extends Component {
                 .then(res =>{
                   console.log("response from server ",res.data)
                 }) 
-                alert("data insert successfully")
+                swal({title: "Data Inserted Successfully",
+            text: "Kindly Refresh the site"})
                 this.setState({
                   back:true
                 })

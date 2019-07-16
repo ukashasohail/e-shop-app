@@ -5,6 +5,7 @@ import { ProductConsumer } from '../context';
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import { withRouter } from "react-router-dom";
+import swal from 'sweetalert'
 
 // import AreSure from './itemsChange/AreSure'
 
@@ -20,11 +21,25 @@ import { withRouter } from "react-router-dom";
             info:'',
             category:'',
             testId: this.props.product.id,
+            login : localStorage.getItem("isLogIn"),
+            visible: 'none',
             deleteDisplayed:'none',
             updateDisplayed:'none'
         }
     }
 
+    componentDidMount(){
+       
+            console.log(this.state.login)
+            if(JSON.parse(this.state.login) === true){
+            this.setState({
+                visible:'block'
+            })
+            
+        }
+
+        
+    }
 
     updateItem =() =>{
         this.setState({
@@ -74,28 +89,26 @@ import { withRouter } from "react-router-dom";
                 .then(res =>{
                   console.log("response from server ",res.data)
                 }) 
-            alert("item Has been updated")
+                swal({title: "Item Has Been Updated",
+                text: "Kindly Refresh the site"})
             this.props.history.push('/')
 
         }
         
 
     deletedItem = () =>{
-        
-        // this.setState({
-        //     display:'flex',
-        // })
-        const delObj = {
-            delId:this.state.testId,
-        }
-
-        axios.post("/deleteItem",delObj)
+        axios.post("/deleteItem",this.state.testId)
                 .then(res =>{
                   console.log("response from server ",res.data);
                 }) 
-        console.log("hello from delete", delObj)
-        alert("item delete succesfully")
+        console.log("hello from areSure", this.state.testId)
+        swal({title: "Item Has Been Deleted From the Database",
+            text: "Kindly Refresh the site"})
+            this.setState({
+                nextPage:true
+            })
         this.props.history.push('/')
+
 
     }
 
@@ -104,6 +117,7 @@ import { withRouter } from "react-router-dom";
             deleteDisplayed:'none',
             updateDisplayed:'none',
         })
+        console.log(this.state.login)
         // this.props.history.push('/')
     }
 
@@ -141,7 +155,7 @@ import { withRouter } from "react-router-dom";
                         {price}
                         </h5>
                     </div>
-                    <div className='card-footer d-flex justify-content-between'>
+                    <div style={{display:this.state.visible}} className='test' >
                         <div className='test-div test-div1' onClick={() => this.updateItem()}><button className='bttn card-btn'>Update Item</button></div>
                         <div className='test-div test-div2' onClick={()=> this.deleteItem() }><button className='bttn card-btn'>Delete Item</button></div>
                     </div>
