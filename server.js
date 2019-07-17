@@ -37,7 +37,7 @@ app.use("/",index);
 //handling /getdata request
 app.get('/getdata', (req, res) => {
 
-    let sql = 'SELECT * FROM Products';
+    let sql = 'SELECT * FROM Product';
 
     let query = db.query(sql, (err, result)=>{
         if (err){

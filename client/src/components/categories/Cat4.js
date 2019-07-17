@@ -1,9 +1,9 @@
 import React,{Component} from 'react'
-import MainCat from './MainCat'
-import Title from './Title'
-import {ProductConsumer} from '../context'
+import MainCat from '../MainCat'
+import Title from '../Title'
+import {ProductConsumer} from '../../context'
 
-export default class Cat1 extends Component {
+export default class Cat4 extends Component {
     render() {
         return (
            <React.Fragment>
@@ -14,7 +14,7 @@ export default class Cat1 extends Component {
                         <ProductConsumer>
                             {(value)=>{
                                 return value.products.map(product =>{
-                                    if(product.category === 2){
+                                    if(product.category === 4){
                                         return <MainCat key={product.id}  product={product} />
                                     }
                                     
