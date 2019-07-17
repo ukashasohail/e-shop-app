@@ -14,7 +14,8 @@ export default class Admin extends Component {
             nextPage: false,
             testId :    [
                 { emails: 'hamzabhati78@yahoo.com', passwords:'hamza12345'},
-                { emails: 'hbhati006@gmail.com', passwords:'hamza12345'}
+                { emails: 'hbhati006@gmail.com', passwords:'hamza12345'},
+                {emails: 'ukasha@yahoo.com', passwords: 'ukasha'}
             ]
         };
 
