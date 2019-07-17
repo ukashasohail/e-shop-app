@@ -62,15 +62,20 @@ class Form extends Component {
         Number: ${this.state.number}
         City: ${this.state.city}
         Address: ${this.state.address}
-      `);
+        `);
 
-      let testObj = {
+        let cartArray = localStorage.getItem("testObj")
+        localStorage.removeItem("testObj")
+        console.log("Hello from cart",cartArray)
+        
+        let testObj = {
         Fname: this.state.firstName,
         Lname: this.state.lastName,
         email: this.state.email,
         number: this.state.number,
         city: this.state.city,
-        address: this.state.address 
+        address: this.state.address,
+        cart: cartArray 
       }
       this.setState({
         nextPage: true,
@@ -83,14 +88,11 @@ class Form extends Component {
         console.log("response from server",res.data)
       } )
 
-      let cartArray = localStorage.getItem("testObj")
-      localStorage.removeItem("testObj")
-      console.log("Hello from cart",cartArray)
 
-      axios.post("/cart",cartArray)
-      .then(res =>{
-        console.log("response from server",res.data)
-      } )
+      // axios.post("/cart",cartArray)
+      // .then(res =>{
+      //   console.log("response from server",res.data)
+      // } )
 
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");

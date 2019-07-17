@@ -30,7 +30,7 @@ export default class  Details extends React.Component{
                                     made by : <span className='text-uppercase'>{company}</span></h4>
                                     <h4 className='text-blue'>
                                         <strong>
-                                            price: <span>$</span>
+                                            price: <span>Rs</span>
                                             {price}    
                                         </strong>
                                     </h4>

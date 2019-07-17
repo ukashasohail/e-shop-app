@@ -13,7 +13,7 @@ export default function Slider(){
             } 
             else{ setIndex(index + 1) }  
             },
-           10000)
+           1000000)
            return () => clearInterval(interval)
         },[index])
 

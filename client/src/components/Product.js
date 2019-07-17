@@ -41,7 +41,7 @@ export default class  Product extends React.Component{
                             </Link>
                         </div>
                         <div className='card-footer d-flex justify-content-between'>
-                        <p className='align-self-center mb-0'>{this.state.testName[index]}</p>
+                        <p className='mb-0'>{this.state.testName[index]}</p>
                         </div>
                 </div>
                 </ProductWrapper>
@@ -49,85 +49,6 @@ export default class  Product extends React.Component{
                    )
                })
                 }               
-
-
-
-
-
-
-
-
-
-
-
-               {/* <ProductWrapper className='col-9 mx-auto col-md-6 col-lg-3 my-3'>
-                <div className='card'>
-                        <div className='img-container p-5'>
-                            <Link to='/Cat1'>
-                                <img src ={image} alt="Product" className="card-img-top"/>
-                            </Link>
-                        </div>
-                        <div className='card-footer d-flex justify-content-between'>
-                        <p className='align-self-center mb-0'>Category 1</p>
-                        </div>
-                </div>
-                </ProductWrapper>
-                <ProductWrapper className='col-9 mx-auto col-md-6 col-lg-3 my-3'>
-                <div className='card'>
-                        <div className='img-container p-5'>
-                            <Link to='/Cat2'>
-                                <img src ={image} alt="Product" className="card-img-top"/>
-                            </Link>
-                        </div>
-                        <div className='card-footer d-flex justify-content-between'>
-                        <p className='align-self-center mb-0'>Category 2</p>
-                        </div>
-                </div>
-               </ProductWrapper>
-               <ProductWrapper className='col-9 mx-auto col-md-6 col-lg-3 my-3'>
-                <div className='card'>
-                        <div className='img-container p-5'>
-                            <Link to='/Cat2'>
-                                <img src ={image} alt="Product" className="card-img-top"/>
-                            </Link>
-                        </div>
-                        <div className='card-footer d-flex justify-content-between'>
-                        <p className='align-self-center mb-0'>Category 2</p>
-                        </div>
-                </div>
-               </ProductWrapper>
-               <ProductWrapper className='col-9 mx-auto col-md-6 col-lg-3 my-3'>
-                <div className='card'>
-                        <div className='img-container p-5'>
-                            <Link to='/Cat2'>
-                                <img src ={image} alt="Product" className="card-img-top"/>
-                            </Link>
-                        </div>
-                        <div className='card-footer d-flex justify-content-between'>
-                        <p className='align-self-center mb-0'>Category 2</p>
-                        </div>
-                </div>
-               </ProductWrapper> */}
-        {/* <div className='py-5'>
-            <div className='container'>
-                   <div className='row'>
-                        <p>Hello this is sample text</p>
-                        <div className='col-10 mt-2 ml-sm-5 ml-md-auto col-sm-8 text-capitalize text-right'>
-                        <Link to='/Cat1'>
-                            <button className='btn btn-outline-danger text-uppercase mb-3 px-5' type='button'>Click Me</button>
-                        </Link>
-                    </div>
-                   </div>
-                   <div className='row'>
-                        <p>Hello this is sample text</p>
-                        <div className='col-10 mt-2 ml-sm-5 ml-md-auto col-sm-8 text-capitalize text-right'>
-                        <Link to='/Cat2'>
-                            <button className='btn btn-outline-danger text-uppercase mb-3 px-5' type='button'>Click Me</button>
-                        </Link>
-                    </div>
-                   </div>
-            </div>
-        </div> */}
 </React.Fragment> 
         )
     }
@@ -140,11 +61,16 @@ const ProductWrapper = styled.div`
 .card{
     border-color: transparent;
     transition: all 1s linear;
+    border: 3px solid #2A2A72;
 }
 .card-footer{
     background: transparent;
     border-top: transparent;
     transition: all 1s linear;
+    margin: 0 auto !important;
+}
+.card-footer > p{
+    font-size: 20px !important
 }
 &:hover{
     .card{
@@ -159,6 +85,7 @@ const ProductWrapper = styled.div`
 .img-container{
     position:relative;
     overflow: hidden;
+    height: 280px !important;
 }
 .card-img-top{
     transition: all 1s linear
