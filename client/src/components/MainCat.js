@@ -94,10 +94,12 @@ import swal from 'sweetalert'
             this.props.history.push('/')
 
         }
-        
 
     deletedItem = () =>{
-        axios.post("/deleteItem",this.state.testId)
+        let itemDel = {
+            delId : this.state.testId
+        }
+        axios.post("/deleteItem",itemDel)
                 .then(res =>{
                   console.log("response from server ",res.data);
                 }) 
