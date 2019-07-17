@@ -10,9 +10,15 @@ import Cart from "./components/Cart"
 import Modal from './components/Modal'
 import Form from './components/Form';
 import Admin from './components/Admin';
-import Cat1 from './components/Cat1';
-import Cat2 from './components/Cat2'
-import axios from "axios"
+import Cat1 from './components/categories/Cat1';
+import Cat2 from './components/categories/Cat2'
+import Cat3 from './components/categories/Cat3'
+import Cat4 from './components/categories/Cat4'
+import Cat5 from './components/categories/Cat5'
+import Cat6 from './components/categories/Cat6'
+import Cat7 from './components/categories/Cat7'
+import Cat8 from './components/categories/Cat8'
+
 
 class App extends React.Component{
   render(){
@@ -32,8 +38,15 @@ class App extends React.Component{
         <Route path="/cart" component={Cart}></Route>
         <Route path="/form" component={Form}></Route>
         <Route path="/admin" component={Admin}></Route>
-        <Route path="/cat1" component={Cat1}></Route>
-        <Route path="/cat2" component={Cat2}></Route>
+        <Route path="/Mobiles" component={Cat1}></Route>
+        <Route path="/Laptops" component={Cat2}></Route>
+        <Route path="/Menswear" component={Cat3}></Route>
+        <Route path="/Womenswear" component={Cat4}></Route>
+        <Route path="/Fragrances" component={Cat5}></Route>
+        <Route path="/Watches" component={Cat6}></Route>
+        <Route path="/Cameras" component={Cat7}></Route>
+        <Route path="/ElectronicHouseholdItems" component={Cat8}></Route>
+
         <Route component={Default}></Route>
       </Switch>
       <Modal />

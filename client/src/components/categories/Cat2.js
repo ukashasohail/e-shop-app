@@ -1,8 +1,7 @@
 import React,{Component} from 'react'
-import Product from './Product'
-import MainCat from './MainCat'
-import Title from './Title'
-import {ProductConsumer} from '../context'
+import MainCat from '../MainCat'
+import Title from '../Title'
+import {ProductConsumer} from '../../context'
 
 export default class Cat1 extends Component {
     render() {
@@ -10,12 +9,12 @@ export default class Cat1 extends Component {
            <React.Fragment>
         <div className='py-5'>
                 <div className='container'>
-                <Title name='Our' title='Products' />
+                <Title name="Our" title="Products" />
                     <div className='row'>
                         <ProductConsumer>
                             {(value)=>{
                                 return value.products.map(product =>{
-                                    if(product.category === 1){
+                                    if(product.category === 2){
                                         return <MainCat key={product.id}  product={product} />
                                     }
                                     

@@ -23,8 +23,8 @@ export default class  Product extends React.Component{
        
     state ={
         testArray: ['images/product-1.png','images/product-2.png','images/product-3.png','images/product-4.png','images/product-5.png','images/product-6.png','images/product-7.jpg','images/product-8.png'],
-        testIndex :['/Cat1','/Cat2','/Cat1','/Cat2','/Cat1','/Cat2','/Cat1','/Cat2'],
-        testName: ['Home Appliances', 'Automotive', 'Cameras', 'Computer Accessoseries','Fitness','Furnitures','Laptops','Watches']
+        testIndex :['/Mobiles','/Laptops','/Menswear','/Womenswear','/Fragrances','/Watches','/Cameras','/ElectronicHouseholdItems'],
+        testName: ['Mobiles', 'Laptops', 'Men Wears', 'Women Wears','Fragrances','Watches','Cameras','Electronic Household Items']
     }
 
     render(){

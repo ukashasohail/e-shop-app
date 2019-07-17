@@ -30,10 +30,6 @@ router.use("/fetchData",(req,res)=> {
     })
 })
 
-// router.use("/deleteItem",(req,res)=>{
-//     console.log("working delete request")
-//     res.send("delete request")
-// })
 router.use("/deleteItem",(req,res)=>{
     console.log("delete.............");
 
