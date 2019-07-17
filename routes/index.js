@@ -6,7 +6,7 @@ const mysql = require('mysql');
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: 'dbms123',
     database: 'mydb'
 });
 
@@ -153,6 +153,23 @@ router.use("/deleteItem",(req,res)=>{
     // });
 
 });
+
+// router.use("/adminpath",(req,res)=>{
+//     console.log("working admin...");
+
+//     let sql = 'SELECT * FROM admin';
+
+//     let query = db.query(sql, (err, result)=>{
+//         if(err){
+//             throw err;
+//         }
+//         res.send(result);
+//         console.log(result);
+//         console.log("admin data");
+//     });
+
+// });
+
 
 });
 
