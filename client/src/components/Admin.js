@@ -1,24 +1,30 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import axios from 'axios'
+import {withRouter} from 'react-router-dom'
 import swal from 'sweetalert'
 import '../App.css';
 
 
-export default class Admin extends Component {
-    constructor() {
-        super();
+class Admin extends Component {
+    constructor(props) {
+        super(props);
+        axios.get("/adminpath",(req,res)=>{
+            console.log("getdata",res.data)
+        })
+        .then(user=> {
+           this.setState({
+                adminItem: user.data,
+            })    
+        })
 
-        this.state = {
-            email: '',
-            password: '',
-            nextPage: false,
-            testId :    [
-                { emails: 'hamzabhati78@yahoo.com', passwords:'hamza12345'},
-                { emails: 'hbhati006@gmail.com', passwords:'hamza12345'}
-            ]
-        };
-
+        
     }
+    state = {
+        email: '',
+        password: '',
+        nextPage: false,
+        adminItem :    []
+    };
 
     handleChange =(e) => {
         let target = e.target;
@@ -33,9 +39,9 @@ export default class Admin extends Component {
     
     handleSubmit =(e) => {
         e.preventDefault();
-        const {email,password,testId} = this.state
-        // testId.forEach((item)=>{
-        //     if(testId[item].emails === email && testId[item].passwords === password){
+        const {email,password,adminItem} = this.state
+        // adminItem.forEach((item)=>{
+        //     if(adminItem[item].emails === email && adminItem[item].passwords === password){
         //         console.log("the form was submit with the following data")
         //         console.log(this.state.email,this.state.password);        
         //     }
@@ -43,29 +49,32 @@ export default class Admin extends Component {
         let isFound = false
         localStorage.setItem("isLogIn2",false)
         localStorage.setItem("isLogIn",false)
-        for(var i=0; i< testId.length;i++){
-            if(testId[i].emails === email && testId[i].passwords === password){
+        for(var i=0; i< adminItem.length;i++){
+            if(adminItem[i].emails === email && adminItem[i].passwords === password){
                 isFound = true
                 localStorage.setItem("isLogIn",true)
                 localStorage.setItem("isLogIn2",true)
                 console.log('The form was submitted with the following data:');
                 console.log(this.state.email,this.state.password);
-                this.setState({
-                    nextPage :true
-                })
+                swal({
+                    icon: "success",
+                    title: "Successfully logged in",
+                    text:"Kindly Refresh the site"
+                  });
+                  this.props.history.push('/')
             }  
         }
-        
+
         if(isFound === false){
             swal({
                 title: "Invalid Id OR Password",
                 className: "red-bg",
+                
             })
         }
       
     }
     render() {
-        if(this.state.nextPage === false){
         return (
             <div className="App">
               <div className="App__Aside"></div>
@@ -96,13 +105,5 @@ export default class Admin extends Component {
             </div>
         )
     }
-    else{
-        return(
-            <div><h1>Succesfully logIn</h1>
-                <Link to='/'><button>Go to home page</button></Link>
-            </div>
-            
-        )
-    }
-    }
 }
+export default withRouter(Admin);
