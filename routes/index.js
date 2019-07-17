@@ -101,7 +101,7 @@ router.use("/updateitem",(req,res)=>{
     console.log(form_data);
     console.log(copy_of_form_data);
 
-    let sql = 'UPDATE Products SET ? where id = ' + form_data["itemId"];
+    let sql = 'UPDATE Product SET ? where id = ' + form_data["itemId"];
 
     let query = db.query(sql, copy_of_form_data, (err, result)=>{
         if(err){
