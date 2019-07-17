@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: 'dbms123',
     database: 'mydb'
 });
 
@@ -47,6 +47,24 @@ app.get('/getdata', (req, res) => {
         res.send(result);
     });
 });
+
+
+app.get("/adminpath",(req,res)=>{
+    console.log("working admin...");
+
+    let sql = 'SELECT * FROM admin';
+
+    let query = db.query(sql, (err, result)=>{
+        if(err){
+            throw err;
+        }
+        res.send(result);
+        console.log(result);
+        console.log("admin data");
+    });
+
+});
+
 
 
 
