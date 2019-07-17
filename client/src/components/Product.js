@@ -28,7 +28,6 @@ export default class  Product extends React.Component{
     }
 
     render(){
-        // const {id, title , img , price , inCart } = this.props.product;
         return(
            <React.Fragment>
                {this.state.testArray.map((elem,index)=>{
