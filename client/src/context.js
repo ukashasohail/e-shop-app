@@ -192,8 +192,6 @@ class ProductProvider extends Component {
         })
     }
     render() {
-        // console.log("this.state.sample", this.state.storeProducts)
-        // console.log("this.state.modal",this.state.modalProduct)
         return (
                 <ProductContext.Provider value={{
                     ...this.state,

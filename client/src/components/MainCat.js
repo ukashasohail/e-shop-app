@@ -128,7 +128,7 @@ import swal from 'sweetalert'
             const {id, title , img , price , inCart } = this.props.product;
             return(
                 <React.Fragment>
-                <ProductWrapper className='col-9 mx-auto col-md-6 col-lg-3 my-3'>
+                <ProductWrapper className='col-9 mx-auto col-md-6 col-lg-3 my-3 test-card'>
                 <div className='card'>
                 <ProductConsumer>
                     {(value)=>(
@@ -137,7 +137,7 @@ import swal from 'sweetalert'
                             value.handleDetail(id)
                         }>
                             <Link to="/details">
-                                <img src={img}  alt='Product' className='card-img-top'/>
+                                <img src={img}  alt='Product' className='card-img-top' />
                             </Link>
                             <button className='cart-btn' disabled={inCart? true: false} onClick={()=>{
                                 value.addToCart(id); 
@@ -254,11 +254,18 @@ const ProductWrapper = styled.div`
 .card{
     border-color: transparent;
     transition: all 1s linear;
+    border: 3px solid #2A2A72;
+    height: 350px !important;
 }
 .card-footer{
     background: transparent;
     border-top: transparent;
     transition: all 1s linear;
+    margin: 0 auto !important;
+}
+.card-footer > p{
+    font-size: 20px !important
+}
 }
 &:hover{
     .card{
@@ -273,6 +280,7 @@ const ProductWrapper = styled.div`
 .img-container{
     position:relative;
     overflow: hidden;
+    height: 280px !important;
 }
 .card-img-top{
     transition: all 1s linear

@@ -20,8 +20,6 @@ export default class  Cart extends React.Component{
                 <ProductConsumer>
                     {value=>{
                         const {cart} = value;
-                        // var cats = cart;
-                        // console.log('cats and dogs',cats)
                         window.localStorage.setItem('testObj',JSON.stringify(cart))
                         if(cart.length >0 ){
                             return (

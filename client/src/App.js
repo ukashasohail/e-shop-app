@@ -18,6 +18,7 @@ import Cat5 from './components/categories/Cat5'
 import Cat6 from './components/categories/Cat6'
 import Cat7 from './components/categories/Cat7'
 import Cat8 from './components/categories/Cat8'
+import FooterPage from './Footer'
 
 
 class App extends React.Component{
@@ -50,6 +51,7 @@ class App extends React.Component{
         <Route component={Default}></Route>
       </Switch>
       <Modal />
+      <FooterPage />
       </React.Fragment>
     )
   }

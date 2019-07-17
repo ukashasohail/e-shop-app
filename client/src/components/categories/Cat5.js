@@ -9,7 +9,7 @@ export default class Cat5 extends Component {
            <React.Fragment>
         <div className='py-5'>
                 <div className='container'>
-                <Title name="Our" title="Products" />
+                <Title name="Our" title="Fragrances" />
                     <div className='row'>
                         <ProductConsumer>
                             {(value)=>{
