@@ -14,7 +14,8 @@ class Admin extends Component {
         .then(user=> {
            this.setState({
                 adminItem: user.data,
-            })    
+            })   
+            console.log(this.state.adminItem) 
         })
 
         
@@ -77,7 +78,6 @@ class Admin extends Component {
     render() {
         return (
             <div className="App">
-              <div className="App__Aside"></div>
               <div className="App__Form">
                   <div className="FormTitle">
                    

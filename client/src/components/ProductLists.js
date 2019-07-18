@@ -15,9 +15,13 @@ export default class  ProductLists extends React.Component{
                 <div className='py-5'>
                     <div className='container'>
                             <Slider />
+                            <div className="white white-2">
+                            <div className='heading-txt'>
                             <Title name="our" title="Categories" />
+                            </div>
                             <div className='row'>
                                 <Product />
+                            </div>
                             </div> 
                             <NavbarAdmin />
                     </div>

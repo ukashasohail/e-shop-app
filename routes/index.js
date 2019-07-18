@@ -17,7 +17,7 @@ var client = new twilio(accountSid, authToken);
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'dbms123',
+    password: 'root',
     database: 'mydb'
 });
 

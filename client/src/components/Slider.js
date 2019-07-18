@@ -2,6 +2,7 @@
 import React from 'react'
 import { Gallery, GalleryImage } from 'react-gesture-gallery'
 import {images} from './slider-images';
+import Title from './Title'
 
 export default function Slider(){
         const [index, setIndex] = React.useState(0)
@@ -18,6 +19,8 @@ export default function Slider(){
         },[index])
 
         return (
+            <div className='white'>
+            <Title title="Welcome to our E-Shop"/>
             <div className='slider'>
            <Gallery index={index}
            
@@ -30,6 +33,7 @@ export default function Slider(){
                )
                )}
            </Gallery>
+           </div>
            </div>
         )
     }

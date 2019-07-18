@@ -261,7 +261,6 @@ const ProductWrapper = styled.div`
     background: transparent;
     border-top: transparent;
     transition: all 1s linear;
-    margin: 0 auto !important;
 }
 .card-footer > p{
     font-size: 20px !important
