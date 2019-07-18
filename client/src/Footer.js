@@ -4,7 +4,7 @@ import './App.css'
 
 const FooterPage = () => {
   return (
-    <MDBFooter color="blue" className="footer-main font-small pt-4 mt-4">
+    <MDBFooter color="blue" className=" container-fluid footer-main font-small pt-4 mt-4">
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
         <MDBCol md="4">
@@ -58,7 +58,7 @@ const FooterPage = () => {
                 <ul className="list-unstyled list-inline social text-center">
                             <li className="list-inline-item"><a className='icon-links' href="javascript:void();"><i className="fab fa-twitter"></i></a></li>
                             <li className="list-inline-item"><a className='icon-links' href="javascript:void();"><i className="fab fa-instagram"></i></a></li>
-                            <li className="list-inline-item"><a className='icon-links' href="https://www.github.com/hamzabhatti125"><i className="fab fa-github"></i></a></li>
+                            <li className="list-inline-item"><a className='icon-links' href="https://github.com/ukashasohail/e-shop-app"><i className="fab fa-github"></i></a></li>
                             <li className="list-inline-item"><a className='icon-links' href="javascript:void();" target="_blank"><i className="fa fa-envelope"></i></a></li>
                 </ul>
             </div>

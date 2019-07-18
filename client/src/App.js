@@ -51,7 +51,6 @@ class App extends React.Component{
         <Route component={Default}></Route>
       </Switch>
       <Modal />
-      <FooterPage />
       </React.Fragment>
     )
   }

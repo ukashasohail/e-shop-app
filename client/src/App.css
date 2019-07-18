@@ -18,7 +18,7 @@ body:focus{
 
 .text-title{
   
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Anton', sans-serif;
   letter-spacing: 0.3em;
   text-transform: uppercase;
 }
@@ -379,7 +379,7 @@ button.delete-btn {
 }
 .test-div {
   display: inline-block;
-  width: 42%;
+  width: 38%;
 }
 .test-hide{
   visibility: hidden;

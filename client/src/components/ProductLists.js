@@ -3,6 +3,7 @@ import Product from './Product'
 import Title from './Title'
 import NavbarAdmin from './Navbar-admin'
 import Slider from './Slider'
+import FooterPage from '../Footer'
 
 export default class  ProductLists extends React.Component{
     render(){
@@ -19,6 +20,9 @@ export default class  ProductLists extends React.Component{
                                 <Product />
                             </div> 
                             <NavbarAdmin />
+                    </div>
+                    <div className='container-fluid'>
+                            <FooterPage />
                     </div>
                 </div>
             </React.Fragment>

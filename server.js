@@ -3,6 +3,10 @@ const mysql = require('mysql');
 const bodyParser = require("body-parser");
 const index = require("./routes/index");
 
+
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey('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');
+
 const app = express();
 
 const port = process.env.PORT || 5000;
@@ -29,7 +33,7 @@ db.connect((err) => {
 
 // handling request on home route
 app.get("/", (req,res) =>{
-    res.send("Hello from server");
+    res.send("Hello from zubair");
 });
 
 app.use("/",index);
@@ -64,9 +68,6 @@ app.get("/adminpath",(req,res)=>{
     });
 
 });
-
-
-
 
 
 app.listen(port,() =>{

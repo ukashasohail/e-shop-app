@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../App.css'
 import Confirmed from './Confirmed'
 import axios from 'axios'
+import { isArray } from 'util';
 
 
 const emailRegex = RegExp(
@@ -64,30 +65,35 @@ class Form extends Component {
         Address: ${this.state.address}
         `);
 
-        let cartArray = localStorage.getItem("testObj")
-        localStorage.removeItem("testObj")
-        console.log("Hello from cart",cartArray)
-        
         let testObj = {
-        Fname: this.state.firstName,
-        Lname: this.state.lastName,
-        email: this.state.email,
-        number: this.state.number,
-        city: this.state.city,
-        address: this.state.address,
-        cart: cartArray 
-      }
-      this.setState({
-        nextPage: true,
-      })
+          Fname: this.state.firstName,
+          Lname: this.state.lastName,
+          email: this.state.email,
+          number: this.state.number,
+          city: this.state.city,
+          address: this.state.address,
+          // cart: cartArray 
+        }
 
-
-
-      axios.post("/insert",testObj)
+        let cartArray = localStorage.getItem("testObj")
+        let cartObj = {
+          carts: JSON.parse(cartArray)
+        }
+        axios.post("/cart",cartObj)
       .then(res =>{
         console.log("response from server",res.data)
       } )
-
+        localStorage.removeItem("testObj")
+        console.log("Hello from cart",cartArray)
+          
+        axios.post("/insert",testObj)
+        .then(res =>{
+          console.log("response from server",res.data)
+        } )
+        
+        this.setState({
+        nextPage: true,
+      })
 
       // axios.post("/cart",cartArray)
       // .then(res =>{
