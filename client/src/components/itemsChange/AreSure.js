@@ -15,10 +15,6 @@ import { withRouter } from "react-router-dom";
     }
 
     deletedItem = () =>{
-        
-        // this.setState({
-        //     display:'flex',
-        // })
 
         axios.post("/deleteItem",this.state.testId)
                 .then(res =>{

@@ -14,7 +14,8 @@ class Admin extends Component {
         .then(user=> {
            this.setState({
                 adminItem: user.data,
-            })    
+            })   
+            console.log(this.state.adminItem) 
         })
 
         

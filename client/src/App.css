@@ -321,7 +321,8 @@ button.delete-btn {
 }
 .test-div {
   display: inline-block;
-  width: 42%;
+  width: 38%;
+  margin-left: 25px;
 }
 .test-hide{
   visibility: hidden;
