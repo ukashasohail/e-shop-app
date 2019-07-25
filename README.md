@@ -1,2 +1,2 @@
 # e-shop-app
-Online Shopping
+Online Shopping webiste developed using React.js, Node.js and MYSQL
