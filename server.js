@@ -3,7 +3,7 @@ const mysql = require('mysql');
 const bodyParser = require("body-parser");
 const index = require("./routes/index");
 
-
+//private key
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey('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');
 
